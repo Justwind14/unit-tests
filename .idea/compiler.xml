@@ -9,6 +9,7 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="Hw4" target="21" />
       <module name="Test" target="21" />
     </bytecodeTargetLevel>
   </component>
