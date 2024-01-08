@@ -1,6 +1,5 @@
 package Hw6;
 
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
@@ -128,7 +127,7 @@ class ManipulationOFListOfNumbersDiffblueTest {
 
   /**
    * Method under test:
-   * {@link ManipulationOFListOfNumbers#AveragesOfListsComparing()}
+   * {@link ManipulationOFListOfNumbers#averagesOfListsComparing()}
    */
   @Test
   void testAveragesOfListsComparing() throws Exception {
@@ -142,7 +141,7 @@ class ManipulationOFListOfNumbersDiffblueTest {
             someNumberList2);
 
     // Act
-    manipulationOFListOfNumbers.AveragesOfListsComparing();
+    manipulationOFListOfNumbers.averagesOfListsComparing();
 
     // Assert that nothing has changed
     assertEquals(0.0d, manipulationOFListOfNumbers.getFirstListAverage());
@@ -154,7 +153,7 @@ class ManipulationOFListOfNumbersDiffblueTest {
 
   /**
    * Method under test:
-   * {@link ManipulationOFListOfNumbers#AveragesOfListsComparing()}
+   * {@link ManipulationOFListOfNumbers#averagesOfListsComparing()}
    */
   @Test
   void testAveragesOfListsComparing2() throws Exception {
@@ -170,7 +169,7 @@ class ManipulationOFListOfNumbersDiffblueTest {
     manipulationOFListOfNumbers.setFirstListAverage(10.0d);
 
     // Act
-    manipulationOFListOfNumbers.AveragesOfListsComparing();
+    manipulationOFListOfNumbers.averagesOfListsComparing();
 
     // Assert that nothing has changed
     assertEquals(0.0d, manipulationOFListOfNumbers.getSecondListAverage());
@@ -182,7 +181,7 @@ class ManipulationOFListOfNumbersDiffblueTest {
 
   /**
    * Method under test:
-   * {@link ManipulationOFListOfNumbers#AveragesOfListsComparing()}
+   * {@link ManipulationOFListOfNumbers#averagesOfListsComparing()}
    */
   @Test
   void testAveragesOfListsComparing3() throws Exception {
@@ -198,7 +197,7 @@ class ManipulationOFListOfNumbersDiffblueTest {
     manipulationOFListOfNumbers.setSecondListAverage(10.0d);
 
     // Act
-    manipulationOFListOfNumbers.AveragesOfListsComparing();
+    manipulationOFListOfNumbers.averagesOfListsComparing();
 
     // Assert that nothing has changed
     assertEquals(0.0d, manipulationOFListOfNumbers.getFirstListAverage());
@@ -210,7 +209,7 @@ class ManipulationOFListOfNumbersDiffblueTest {
 
   /**
    * Method under test:
-   * {@link ManipulationOFListOfNumbers#AveragesOfListsComparing()}
+   * {@link ManipulationOFListOfNumbers#averagesOfListsComparing()}
    */
   @Test
   void testAveragesOfListsComparing4() throws Exception {
@@ -227,7 +226,7 @@ class ManipulationOFListOfNumbersDiffblueTest {
     manipulationOFListOfNumbers.setFirstListAverage(10.0d);
 
     // Act
-    manipulationOFListOfNumbers.AveragesOfListsComparing();
+    manipulationOFListOfNumbers.averagesOfListsComparing();
 
     // Assert that nothing has changed
     List<Double> firstDoublesList = manipulationOFListOfNumbers.getFirstDoublesList();
@@ -251,41 +250,8 @@ class ManipulationOFListOfNumbersDiffblueTest {
    *   <li>{@link ManipulationOFListOfNumbers#getSecondListAverage()}
    * </ul>
    */
-  @Test
-  @Disabled("TODO: Complete this test")
-  void testGettersAndSetters() {
-    // TODO: Complete this test.
-    //   Reason: R081 Exception in arrange section.
-    //   Diffblue Cover was unable to construct an instance of the class under test using
-    //   Hw6.ManipulationOFListOfNumbers.setFirstDoublesList(List).
-    //   The arrange section threw
-    //   java.lang.Exception: список/списки не могут быть пустыми
-    //       at Hw6.ManipulationOFListOfNumbers.<init>(ManipulationOFListOfNumbers.java:12)
-    //   See https://diff.blue/R081 to resolve this issue.
-
-    // Arrange
-    // TODO: Populate arranged inputs
-    ManipulationOFListOfNumbers manipulationOFListOfNumbers = null;
-    List<Double> firstDoublesList = null;
-
-    // Act
-    manipulationOFListOfNumbers.setFirstDoublesList(firstDoublesList);
-    double firstListAverage = 0.0d;
-    manipulationOFListOfNumbers.setFirstListAverage(firstListAverage);
-    List<Double> secondDoublesList = null;
-    manipulationOFListOfNumbers.setSecondDoublesList(secondDoublesList);
-    double secondListAverage = 0.0d;
-    manipulationOFListOfNumbers.setSecondListAverage(secondListAverage);
-    List<Double> actualFirstDoublesList = manipulationOFListOfNumbers.getFirstDoublesList();
-    double actualFirstListAverage = manipulationOFListOfNumbers.getFirstListAverage();
-    List<Double> actualSecondDoublesList = manipulationOFListOfNumbers.getSecondDoublesList();
-    double actualSecondListAverage = manipulationOFListOfNumbers.getSecondListAverage();
-
-    // Assert
-    // TODO: Add assertions on result
-  }
-
   /**
+   *
    * Method under test:
    * {@link ManipulationOFListOfNumbers#ManipulationOFListOfNumbers(List, List)}
    */
