@@ -93,15 +93,8 @@ public class ManipulationOFListOfNumbers {
         return firstDoublesList;
     }
 
-    public void setFirstDoublesList(List<Double> firstDoublesList) {
-        this.firstDoublesList = firstDoublesList;
-    }
-
     public List<Double> getSecondDoublesList() {
         return secondDoublesList;
     }
 
-    public void setSecondDoublesList(List<Double> secondDoublesList) {
-        this.secondDoublesList = secondDoublesList;
-    }
 }
