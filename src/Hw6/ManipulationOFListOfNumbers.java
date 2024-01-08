@@ -7,7 +7,10 @@ public class ManipulationOFListOfNumbers {
     private double secondListAverage;
     private List<Double> firstDoublesList;
     private List<Double> secondDoublesList;
-    public ManipulationOFListOfNumbers (List<Double> someNumberList1, List<Double> someNumberList2) {
+    public ManipulationOFListOfNumbers (List<Double> someNumberList1, List<Double> someNumberList2) throws Exception {
+        if (someNumberList1.isEmpty() || someNumberList2.isEmpty()) {
+            throw new Exception("список/списки не могут быть пустыми");
+        }
         this.firstDoublesList = someNumberList1;
         this.secondDoublesList = someNumberList2;
     }
@@ -18,7 +21,10 @@ public class ManipulationOFListOfNumbers {
     }
 
     public void AveragesOfListsComparing() {
-        if (this.getFirstListAverage() != 0 && this.getSecondListAverage() != 0) {
+        if (this.getFirstListAverage() == 0 && this.getSecondListAverage() == 0) {
+            System.out.println("Небходимо сначала вычислить средние значения списков");
+        }
+        else {
             if (this.firstListAverage > this.secondListAverage) {
                 System.out.println("Первый список имеет большее среднее значение");
             }
@@ -29,7 +35,6 @@ public class ManipulationOFListOfNumbers {
                 System.out.println("Средние значения равны");
             }
         }
-        else System.out.println("Небходимо сначала вычислить средние значения списков");
     }
 
     public double getFirstListAverage() {
