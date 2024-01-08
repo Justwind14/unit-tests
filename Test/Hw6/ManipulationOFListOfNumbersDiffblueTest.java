@@ -44,74 +44,14 @@ class ManipulationOFListOfNumbersTest {
 
     /**
      * Method under test: {@link ManipulationOFListOfNumbers#averageCalculation()}
-     * проверяем правильность расчета среднего значения у первого листа
-     */
-    @Test
-    void testAverageCalculation() throws Exception {
-        // Act
-        lists.averageCalculation();
-
-        // Assert
-        assertEquals(20.0d, lists.getFirstListAverage());
-    }
-
-    /**
-     * Method under test: {@link ManipulationOFListOfNumbers#averageCalculation()}
-     * проверяем правильность расчета среднего значения у второго листа
-     */
-    @Test
-    void testAverageCalculation2() throws Exception {
-        // Act
-        lists.averageCalculation();
-
-        // Assert
-        assertEquals(20.0d, lists.getSecondListAverage());
-    }
-
-    /**
-     * Method under test: {@link ManipulationOFListOfNumbers#averageCalculation()}
      * проверяем вычисление размера первого листа
      */
     @Test
     void testAverageCalculation3() throws Exception {
-        // Act
-        lists.averageCalculation();
-
         // Assert
         assertEquals(3, lists.getFirstDoublesList().size());
     }
 
-
-
-    /**
-     * Method under test:
-     * {@link ManipulationOFListOfNumbers#averagesOfListsComparing()}
-     * проверяем на равенство значений
-     */
-    @Test
-    void testAveragesOfListsComparing() throws Exception {
-        // Act
-        lists.averageCalculation();
-
-        // Act and Assert
-        assertEquals("Средние значения равны",
-                lists.averagesOfListsComparing());
-    }
-
-    /**
-     * Method under test:
-     * {@link ManipulationOFListOfNumbers#averagesOfListsComparing()}
-     */
-    @Test
-    void testAveragesOfListsComparing4() throws Exception {
-        // Arrange
-        lists.setFirstListAverage(0);
-        lists.setSecondListAverage(0);
-
-        // Act and Assert
-        assertEquals("Небходимо сначала вычислить средние значения списков",
-                lists.averagesOfListsComparing());
-    }
 
 
     /**
@@ -143,6 +83,68 @@ class ManipulationOFListOfNumbersTest {
         assertThrows(Exception.class, () -> new ManipulationOFListOfNumbers(someNumberList1, someList2));
     }
 
+
+
+    /**
+     * Method under test: {@link ManipulationOFListOfNumbers#averageCalculation()}
+     * проверяем вычисление размера второго листа
+     */
+    @Test
+    void testAverageCalculation4() throws Exception {
+        // Act
+
+        // Assert
+        assertEquals(3, lists.getSecondDoublesList().size());
+    }
+
+
+
+    /**
+     * ----------- ИНТЕГРАЦИОННОЕ ТЕСТИРОВАНИЕ ----------------------
+     */
+
+
+    /**
+     * Method under test: {@link ManipulationOFListOfNumbers#averageCalculation()}
+     * проверяем правильность расчета среднего значения у первого листа
+     */
+    @Test
+    void testAverageCalculation() throws Exception {
+        // Act
+        lists.averageCalculation();
+
+        // Assert
+        assertEquals(20.0d, lists.getFirstListAverage());
+    }
+
+    /**
+     * Method under test: {@link ManipulationOFListOfNumbers#averageCalculation()}
+     * проверяем правильность расчета среднего значения у второго листа
+     */
+    @Test
+    void testAverageCalculation2() throws Exception {
+        // Act
+        lists.averageCalculation();
+
+        // Assert
+        assertEquals(20.0d, lists.getSecondListAverage());
+    }
+
+
+    /**
+     * Method under test:
+     * {@link ManipulationOFListOfNumbers#averagesOfListsComparing()}
+     */
+    @Test
+    void testAveragesOfListsComparing4() throws Exception {
+        // Arrange
+        lists.setFirstListAverage(0);
+        lists.setSecondListAverage(0);
+
+        // Act and Assert
+        assertEquals("Небходимо сначала вычислить средние значения списков",
+                lists.averagesOfListsComparing());
+    }
 
 
 
@@ -195,16 +197,19 @@ class ManipulationOFListOfNumbersTest {
     }
 
     /**
-     * Method under test: {@link ManipulationOFListOfNumbers#averageCalculation()}
-     * проверяем вычисление размера второго листа
+     * Method under test:
+     * {@link ManipulationOFListOfNumbers#averagesOfListsComparing()}
+     * проверяем на равенство значений
      */
     @Test
-    void testAverageCalculation4() throws Exception {
+    void testAveragesOfListsComparing() throws Exception {
         // Act
         lists.averageCalculation();
 
-        // Assert
-        assertEquals(3, lists.getSecondDoublesList().size());
+        // Act and Assert
+        assertEquals("Средние значения равны",
+                lists.averagesOfListsComparing());
     }
+
 
 }
