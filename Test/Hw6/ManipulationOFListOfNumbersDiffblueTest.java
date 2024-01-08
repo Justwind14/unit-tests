@@ -81,18 +81,7 @@ class ManipulationOFListOfNumbersTest {
         assertEquals(3, lists.getFirstDoublesList().size());
     }
 
-    /**
-     * Method under test: {@link ManipulationOFListOfNumbers#averageCalculation()}
-     * проверяем вычисление размера второго листа
-     */
-    @Test
-    void testAverageCalculation4() throws Exception {
-        // Act
-        lists.averageCalculation();
 
-        // Assert
-        assertEquals(3, lists.getSecondDoublesList().size());
-    }
 
     /**
      * Method under test:
@@ -107,49 +96,6 @@ class ManipulationOFListOfNumbersTest {
         // Act and Assert
         assertEquals("Средние значения равны",
                 lists.averagesOfListsComparing());
-    }
-
-    /**
-     * Method under test:
-     * {@link ManipulationOFListOfNumbers#averagesOfListsComparing()}
-     * проверяем на условие, что среднее значение первого листа больше второго
-     */
-    @Test
-    void testAveragesOfListsComparing2() throws Exception {
-        // Arrange
-        List<Double> list3 = new ArrayList<>();
-        list3.add(10.0d);
-        list3.add(20.0d);
-        list3.add(30.0d);
-        list3.add(40.0d);
-
-        ManipulationOFListOfNumbers lists3 = new ManipulationOFListOfNumbers(list3, someNumberList2);
-        lists3.averageCalculation();
-        // Act and Assert
-        assertEquals("Первый список имеет большее среднее значение",
-                lists3.averagesOfListsComparing());
-    }
-
-    /**
-     * Method under test:
-     * {@link ManipulationOFListOfNumbers#averagesOfListsComparing()}
-     * проверяем на условие, что среднее значение второго листа больше первого
-     */
-    @Test
-    void testAveragesOfListsComparing3() throws Exception {
-        // Arrange
-        List<Double> list3 = new ArrayList<>();
-        list3.add(10.0d);
-        list3.add(20.0d);
-        list3.add(30.0d);
-        list3.add(40.0d);
-
-        ManipulationOFListOfNumbers lists2 = new ManipulationOFListOfNumbers(someNumberList1, list3);
-        lists2.averageCalculation();
-
-        // Act and Assert
-        assertEquals("Второй список имеет большее среднее значение",
-                lists2.averagesOfListsComparing());
     }
 
     /**
@@ -183,7 +129,6 @@ class ManipulationOFListOfNumbersTest {
     }
 
 
-
     /**
      * Method under test:
      * {@link ManipulationOFListOfNumbers#ManipulationOFListOfNumbers(List, List)}
@@ -198,5 +143,68 @@ class ManipulationOFListOfNumbersTest {
         assertThrows(Exception.class, () -> new ManipulationOFListOfNumbers(someNumberList1, someList2));
     }
 
+
+
+
+
+    /**
+        * --------------   E2E ТЕСТЫ ---------------------------
+     */
+
+    /**
+     * Method under test:
+     * {@link ManipulationOFListOfNumbers#averagesOfListsComparing()}
+     * проверяем на условие, что среднее значение второго листа больше первого
+     */
+    @Test
+    void testAveragesOfListsComparing3() throws Exception {
+        // Arrange
+        List<Double> list3 = new ArrayList<>();
+        list3.add(10.0d);
+        list3.add(20.0d);
+        list3.add(30.0d);
+        list3.add(40.0d);
+
+        ManipulationOFListOfNumbers lists2 = new ManipulationOFListOfNumbers(someNumberList1, list3);
+        lists2.averageCalculation();
+
+        // Act and Assert
+        assertEquals("Второй список имеет большее среднее значение",
+                lists2.averagesOfListsComparing());
+    }
+
+    /**
+     * Method under test:
+     * {@link ManipulationOFListOfNumbers#averagesOfListsComparing()}
+     * проверяем на условие, что среднее значение первого листа больше второго
+     */
+    @Test
+    void testAveragesOfListsComparing2() throws Exception {
+        // Arrange
+        List<Double> list3 = new ArrayList<>();
+        list3.add(10.0d);
+        list3.add(20.0d);
+        list3.add(30.0d);
+        list3.add(40.0d);
+
+        ManipulationOFListOfNumbers lists3 = new ManipulationOFListOfNumbers(list3, someNumberList2);
+        lists3.averageCalculation();
+        // Act and Assert
+        assertEquals("Первый список имеет большее среднее значение",
+                lists3.averagesOfListsComparing());
+    }
+
+    /**
+     * Method under test: {@link ManipulationOFListOfNumbers#averageCalculation()}
+     * проверяем вычисление размера второго листа
+     */
+    @Test
+    void testAverageCalculation4() throws Exception {
+        // Act
+        lists.averageCalculation();
+
+        // Assert
+        assertEquals(3, lists.getSecondDoublesList().size());
+    }
 
 }
