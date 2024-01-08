@@ -26,7 +26,7 @@ public class ManipulationOFListOfNumbers {
 
     /**
      * Конструктор
-     * @param someNumberList1 - первый список чисел
+     * @param someNumberList1 - первый список чисел``
      * @param someNumberList2 - второй список чисел
      */
 
