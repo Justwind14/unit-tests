@@ -1,5 +1,6 @@
 package Hw6;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
@@ -8,349 +9,190 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-class ManipulationOFListOfNumbersDiffblueTest {
-  /**
-   * Method under test: {@link ManipulationOFListOfNumbers#averageCalculation()}
-   */
-  @Test
-  void testAverageCalculation() throws Exception {
-    // Arrange
-    ArrayList<Double> someNumberList1 = new ArrayList<>();
-    someNumberList1.add(10.0d);
+class ManipulationOFListOfNumbersTest {
 
-    ArrayList<Double> someNumberList2 = new ArrayList<>();
-    someNumberList2.add(10.0d);
-    ManipulationOFListOfNumbers manipulationOFListOfNumbers = new ManipulationOFListOfNumbers(someNumberList1,
-            someNumberList2);
+    List<Double> someNumberList1;
+    List<Double> someNumberList2;
+    ManipulationOFListOfNumbers lists;
 
-    // Act
-    manipulationOFListOfNumbers.averageCalculation();
 
-    // Assert
-    assertEquals(10.0d, manipulationOFListOfNumbers.getFirstListAverage());
-    assertEquals(10.0d, manipulationOFListOfNumbers.getSecondListAverage());
-  }
+    @BeforeEach
+    /**
+     * задаем входные данные всем тестам
+     */
+    void setUp() throws Exception {
+        someNumberList1 = new ArrayList<>();
+        someNumberList1.add(10.0d);
+        someNumberList1.add(20.0d);
+        someNumberList1.add(30.0d);
 
-  /**
-   * Method under test: {@link ManipulationOFListOfNumbers#averageCalculation()}
-   */
-  @Test
-  void testAverageCalculation2() throws Exception {
-    // Arrange
-    ArrayList<Double> someNumberList1 = new ArrayList<>();
-    someNumberList1.add(10.0d);
+        someNumberList2 = new ArrayList<>();
+        someNumberList2.add(10.0d);
+        someNumberList2.add(20.0d);
+        someNumberList2.add(30.0d);
 
-    ArrayList<Double> someNumberList2 = new ArrayList<>();
-    someNumberList2.add(0.5d);
-    someNumberList2.add(10.0d);
-    ManipulationOFListOfNumbers manipulationOFListOfNumbers = new ManipulationOFListOfNumbers(someNumberList1,
-            someNumberList2);
+        lists = new ManipulationOFListOfNumbers(someNumberList1,
+                someNumberList2);
+    }
 
-    // Act
-    manipulationOFListOfNumbers.averageCalculation();
 
-    // Assert
-    assertEquals(10.0d, manipulationOFListOfNumbers.getFirstListAverage());
-    assertEquals(5.25d, manipulationOFListOfNumbers.getSecondListAverage());
-  }
 
-  /**
-   * Method under test: {@link ManipulationOFListOfNumbers#averageCalculation()}
-   */
-  @Test
-  void testAverageCalculation3() throws Exception {
-    // Arrange
-    ArrayList<Double> someNumberList1 = new ArrayList<>();
-    someNumberList1.add(10.0d);
-    someNumberList1.add(10.0d);
+    /**
+     * -----------------------  МОДУЛЬНОЕ ТЕСТИРОВАНИЕ ------------------------------
+     */
 
-    ArrayList<Double> someNumberList2 = new ArrayList<>();
-    someNumberList2.add(10.0d);
-    ManipulationOFListOfNumbers manipulationOFListOfNumbers = new ManipulationOFListOfNumbers(someNumberList1,
-            someNumberList2);
 
-    // Act
-    manipulationOFListOfNumbers.averageCalculation();
+    /**
+     * Method under test: {@link ManipulationOFListOfNumbers#averageCalculation()}
+     * проверяем правильность расчета среднего значения у первого листа
+     */
+    @Test
+    void testAverageCalculation() throws Exception {
+        // Act
+        lists.averageCalculation();
 
-    // Assert
-    assertEquals(10.0d, manipulationOFListOfNumbers.getFirstListAverage());
-    assertEquals(10.0d, manipulationOFListOfNumbers.getSecondListAverage());
-  }
+        // Assert
+        assertEquals(20.0d, lists.getFirstListAverage());
+    }
 
-  /**
-   * Method under test: {@link ManipulationOFListOfNumbers#averageCalculation()}
-   */
-  @Test
-  void testAverageCalculation4() throws Exception {
-    // Arrange
-    ArrayList<Double> someNumberList1 = new ArrayList<>();
-    someNumberList1.add(10.0d);
+    /**
+     * Method under test: {@link ManipulationOFListOfNumbers#averageCalculation()}
+     * проверяем правильность расчета среднего значения у второго листа
+     */
+    @Test
+    void testAverageCalculation2() throws Exception {
+        // Act
+        lists.averageCalculation();
 
-    ArrayList<Double> someNumberList2 = new ArrayList<>();
-    someNumberList2.add(10.0d);
+        // Assert
+        assertEquals(20.0d, lists.getSecondListAverage());
+    }
 
-    ManipulationOFListOfNumbers manipulationOFListOfNumbers = new ManipulationOFListOfNumbers(someNumberList1,
-            someNumberList2);
-    manipulationOFListOfNumbers.setFirstDoublesList(new ArrayList<>());
+    /**
+     * Method under test: {@link ManipulationOFListOfNumbers#averageCalculation()}
+     * проверяем вычисление размера первого листа
+     */
+    @Test
+    void testAverageCalculation3() throws Exception {
+        // Act
+        lists.averageCalculation();
 
-    // Act
-    manipulationOFListOfNumbers.averageCalculation();
+        // Assert
+        assertEquals(3, lists.getFirstDoublesList().size());
+    }
 
-    // Assert
-    assertEquals(10.0d, manipulationOFListOfNumbers.getSecondListAverage());
-    assertEquals(Double.NaN, manipulationOFListOfNumbers.getFirstListAverage());
-  }
+    /**
+     * Method under test: {@link ManipulationOFListOfNumbers#averageCalculation()}
+     * проверяем вычисление размера второго листа
+     */
+    @Test
+    void testAverageCalculation4() throws Exception {
+        // Act
+        lists.averageCalculation();
 
-  /**
-   * Method under test: {@link ManipulationOFListOfNumbers#averageCalculation()}
-   */
-  @Test
-  void testAverageCalculation5() throws Exception {
-    // Arrange
-    ArrayList<Double> someNumberList1 = new ArrayList<>();
-    someNumberList1.add(10.0d);
+        // Assert
+        assertEquals(3, lists.getSecondDoublesList().size());
+    }
 
-    ArrayList<Double> someNumberList2 = new ArrayList<>();
-    someNumberList2.add(10.0d);
+    /**
+     * Method under test:
+     * {@link ManipulationOFListOfNumbers#averagesOfListsComparing()}
+     * проверяем на равенство значений
+     */
+    @Test
+    void testAveragesOfListsComparing() throws Exception {
+        // Act and Assert
+        assertEquals("Средние значения равны",
+                lists.averagesOfListsComparing());
+    }
 
-    ManipulationOFListOfNumbers manipulationOFListOfNumbers = new ManipulationOFListOfNumbers(someNumberList1,
-            someNumberList2);
-    manipulationOFListOfNumbers.setSecondDoublesList(new ArrayList<>());
+    /**
+     * Method under test:
+     * {@link ManipulationOFListOfNumbers#averagesOfListsComparing()}
+     * проверяем на условие, что среднее значение первого листа больше второго
+     */
+    @Test
+    void testAveragesOfListsComparing2() throws Exception {
+        // Arrange
+        List<Double> list3 = new ArrayList<>();
+        list3.add(10.0d);
+        list3.add(20.0d);
+        list3.add(30.0d);
+        list3.add(40.0d);
 
-    // Act
-    manipulationOFListOfNumbers.averageCalculation();
+        ManipulationOFListOfNumbers lists3 = new ManipulationOFListOfNumbers(list3, someNumberList2);
 
-    // Assert
-    assertEquals(10.0d, manipulationOFListOfNumbers.getFirstListAverage());
-    assertEquals(Double.NaN, manipulationOFListOfNumbers.getSecondListAverage());
-  }
+        // Act and Assert
+        assertEquals("Первый список имеет большее среднее значение",
+                lists3.averagesOfListsComparing());
+    }
 
-  /**
-   * Method under test:
-   * {@link ManipulationOFListOfNumbers#averagesOfListsComparing()}
-   */
-  @Test
-  void testAveragesOfListsComparing() throws Exception {
-    // Arrange
-    ArrayList<Double> someNumberList1 = new ArrayList<>();
-    someNumberList1.add(10.0d);
+    /**
+     * Method under test:
+     * {@link ManipulationOFListOfNumbers#averagesOfListsComparing()}
+     * проверяем на условие, что среднее значение второго листа больше первого
+     */
+    @Test
+    void testAveragesOfListsComparing3() throws Exception {
+        // Arrange
+        List<Double> list3 = new ArrayList<>();
+        list3.add(10.0d);
+        list3.add(20.0d);
+        list3.add(30.0d);
+        list3.add(40.0d);
 
-    ArrayList<Double> someNumberList2 = new ArrayList<>();
-    someNumberList2.add(10.0d);
-    ManipulationOFListOfNumbers manipulationOFListOfNumbers = new ManipulationOFListOfNumbers(someNumberList1,
-            someNumberList2);
+        ManipulationOFListOfNumbers lists2 = new ManipulationOFListOfNumbers(someNumberList1, list3);
 
-    // Act
-    manipulationOFListOfNumbers.averagesOfListsComparing();
+        // Act and Assert
+        assertEquals("Второй список имеет большее среднее значение",
+                lists2.averagesOfListsComparing());
+    }
 
-    // Assert that nothing has changed
-    assertEquals(0.0d, manipulationOFListOfNumbers.getFirstListAverage());
-    assertEquals(0.0d, manipulationOFListOfNumbers.getSecondListAverage());
-    List<Double> firstDoublesList = manipulationOFListOfNumbers.getFirstDoublesList();
-    assertEquals(1, firstDoublesList.size());
-    assertEquals(firstDoublesList, manipulationOFListOfNumbers.getSecondDoublesList());
-  }
+    /**
+     * Method under test:
+     * {@link ManipulationOFListOfNumbers#averagesOfListsComparing()}
+     */
+    @Test
+    void testAveragesOfListsComparing4() throws Exception {
+        // Arrange
+        lists.setFirstListAverage(0);
+        lists.setSecondListAverage(0);
 
-  /**
-   * Method under test:
-   * {@link ManipulationOFListOfNumbers#averagesOfListsComparing()}
-   */
-  @Test
-  void testAveragesOfListsComparing2() throws Exception {
-    // Arrange
-    ArrayList<Double> someNumberList1 = new ArrayList<>();
-    someNumberList1.add(10.0d);
+        // Act and Assert
+        assertEquals("Небходимо сначала вычислить средние значения списков",
+                lists.averagesOfListsComparing());
+    }
 
-    ArrayList<Double> someNumberList2 = new ArrayList<>();
-    someNumberList2.add(10.0d);
 
-    ManipulationOFListOfNumbers manipulationOFListOfNumbers = new ManipulationOFListOfNumbers(someNumberList1,
-            someNumberList2);
-    manipulationOFListOfNumbers.setFirstListAverage(10.0d);
+    /**
+     * Method under test:
+     * {@link ManipulationOFListOfNumbers#ManipulationOFListOfNumbers(List, List)}
+     * проверяем, что при создании экземпляра класса с пустым листом вторым аргументом будет вызываться ошибка
+     */
+    @Test
+    void testNewManipulationOFListOfNumbers() throws Exception {
+        // Arrange
+        ArrayList<Double> someList1 = new ArrayList<>();
 
-    // Act
-    manipulationOFListOfNumbers.averagesOfListsComparing();
+        // Act and Assert
+        assertThrows(Exception.class, () -> new ManipulationOFListOfNumbers(someList1, someNumberList2));
+    }
 
-    // Assert that nothing has changed
-    assertEquals(0.0d, manipulationOFListOfNumbers.getSecondListAverage());
-    List<Double> firstDoublesList = manipulationOFListOfNumbers.getFirstDoublesList();
-    assertEquals(1, firstDoublesList.size());
-    assertEquals(10.0d, manipulationOFListOfNumbers.getFirstListAverage());
-    assertEquals(firstDoublesList, manipulationOFListOfNumbers.getSecondDoublesList());
-  }
 
-  /**
-   * Method under test:
-   * {@link ManipulationOFListOfNumbers#averagesOfListsComparing()}
-   */
-  @Test
-  void testAveragesOfListsComparing3() throws Exception {
-    // Arrange
-    ArrayList<Double> someNumberList1 = new ArrayList<>();
-    someNumberList1.add(10.0d);
 
-    ArrayList<Double> someNumberList2 = new ArrayList<>();
-    someNumberList2.add(10.0d);
+    /**
+     * Method under test:
+     * {@link ManipulationOFListOfNumbers#ManipulationOFListOfNumbers(List, List)}
+     * проверяем, что при создании экземпляра класса с пустым листом вторым аргументом будет вызываться ошибка
+     */
+    @Test
+    void testNewManipulationOFListOfNumbers2() throws Exception {
+        // Arrange
+        ArrayList<Double> someList2 = new ArrayList<>();
 
-    ManipulationOFListOfNumbers manipulationOFListOfNumbers = new ManipulationOFListOfNumbers(someNumberList1,
-            someNumberList2);
-    manipulationOFListOfNumbers.setSecondListAverage(10.0d);
+        // Act and Assert
+        assertThrows(Exception.class, () -> new ManipulationOFListOfNumbers(someNumberList1, someList2));
+    }
 
-    // Act
-    manipulationOFListOfNumbers.averagesOfListsComparing();
 
-    // Assert that nothing has changed
-    assertEquals(0.0d, manipulationOFListOfNumbers.getFirstListAverage());
-    List<Double> firstDoublesList = manipulationOFListOfNumbers.getFirstDoublesList();
-    assertEquals(1, firstDoublesList.size());
-    assertEquals(10.0d, manipulationOFListOfNumbers.getSecondListAverage());
-    assertEquals(firstDoublesList, manipulationOFListOfNumbers.getSecondDoublesList());
-  }
-
-  /**
-   * Method under test:
-   * {@link ManipulationOFListOfNumbers#averagesOfListsComparing()}
-   */
-  @Test
-  void testAveragesOfListsComparing4() throws Exception {
-    // Arrange
-    ArrayList<Double> someNumberList1 = new ArrayList<>();
-    someNumberList1.add(10.0d);
-
-    ArrayList<Double> someNumberList2 = new ArrayList<>();
-    someNumberList2.add(10.0d);
-
-    ManipulationOFListOfNumbers manipulationOFListOfNumbers = new ManipulationOFListOfNumbers(someNumberList1,
-            someNumberList2);
-    manipulationOFListOfNumbers.setSecondListAverage(10.0d);
-    manipulationOFListOfNumbers.setFirstListAverage(10.0d);
-
-    // Act
-    manipulationOFListOfNumbers.averagesOfListsComparing();
-
-    // Assert that nothing has changed
-    List<Double> firstDoublesList = manipulationOFListOfNumbers.getFirstDoublesList();
-    assertEquals(1, firstDoublesList.size());
-    assertEquals(10.0d, manipulationOFListOfNumbers.getFirstListAverage());
-    assertEquals(10.0d, manipulationOFListOfNumbers.getSecondListAverage());
-    assertEquals(firstDoublesList, manipulationOFListOfNumbers.getSecondDoublesList());
-  }
-
-  /**
-   * Methods under test:
-   *
-   * <ul>
-   *   <li>{@link ManipulationOFListOfNumbers#setFirstDoublesList(List)}
-   *   <li>{@link ManipulationOFListOfNumbers#setFirstListAverage(double)}
-   *   <li>{@link ManipulationOFListOfNumbers#setSecondDoublesList(List)}
-   *   <li>{@link ManipulationOFListOfNumbers#setSecondListAverage(double)}
-   *   <li>{@link ManipulationOFListOfNumbers#getFirstDoublesList()}
-   *   <li>{@link ManipulationOFListOfNumbers#getFirstListAverage()}
-   *   <li>{@link ManipulationOFListOfNumbers#getSecondDoublesList()}
-   *   <li>{@link ManipulationOFListOfNumbers#getSecondListAverage()}
-   * </ul>
-   */
-  /**
-   *
-   * Method under test:
-   * {@link ManipulationOFListOfNumbers#ManipulationOFListOfNumbers(List, List)}
-   */
-  @Test
-  void testNewManipulationOFListOfNumbers() throws Exception {
-    // Arrange
-    ArrayList<Double> someNumberList1 = new ArrayList<>();
-
-    // Act and Assert
-    assertThrows(Exception.class, () -> new ManipulationOFListOfNumbers(someNumberList1, new ArrayList<>()));
-
-  }
-
-  /**
-   * Method under test:
-   * {@link ManipulationOFListOfNumbers#ManipulationOFListOfNumbers(List, List)}
-   */
-  @Test
-  void testNewManipulationOFListOfNumbers2() throws Exception {
-    // Arrange
-    ArrayList<Double> someNumberList1 = new ArrayList<>();
-    someNumberList1.add(10.0d);
-
-    // Act and Assert
-    assertThrows(Exception.class, () -> new ManipulationOFListOfNumbers(someNumberList1, new ArrayList<>()));
-
-  }
-
-  /**
-   * Method under test:
-   * {@link ManipulationOFListOfNumbers#ManipulationOFListOfNumbers(List, List)}
-   */
-  @Test
-  void testNewManipulationOFListOfNumbers3() throws Exception {
-    // Arrange
-    ArrayList<Double> someNumberList1 = new ArrayList<>();
-    someNumberList1.add(0.5d);
-    someNumberList1.add(10.0d);
-
-    // Act and Assert
-    assertThrows(Exception.class, () -> new ManipulationOFListOfNumbers(someNumberList1, new ArrayList<>()));
-
-  }
-
-  /**
-   * Method under test:
-   * {@link ManipulationOFListOfNumbers#ManipulationOFListOfNumbers(List, List)}
-   */
-  @Test
-  void testNewManipulationOFListOfNumbers4() throws Exception {
-    // Arrange
-    ArrayList<Double> someNumberList1 = new ArrayList<>();
-
-    ArrayList<Double> someNumberList2 = new ArrayList<>();
-    someNumberList2.add(10.0d);
-
-    // Act and Assert
-    assertThrows(Exception.class, () -> new ManipulationOFListOfNumbers(someNumberList1, someNumberList2));
-
-  }
-
-  /**
-   * Method under test:
-   * {@link ManipulationOFListOfNumbers#ManipulationOFListOfNumbers(List, List)}
-   */
-  @Test
-  void testNewManipulationOFListOfNumbers5() throws Exception {
-    // Arrange
-    ArrayList<Double> someNumberList1 = new ArrayList<>();
-
-    ArrayList<Double> someNumberList2 = new ArrayList<>();
-    someNumberList2.add(0.5d);
-    someNumberList2.add(10.0d);
-
-    // Act and Assert
-    assertThrows(Exception.class, () -> new ManipulationOFListOfNumbers(someNumberList1, someNumberList2));
-
-  }
-
-  /**
-   * Method under test:
-   * {@link ManipulationOFListOfNumbers#ManipulationOFListOfNumbers(List, List)}
-   */
-  @Test
-  void testNewManipulationOFListOfNumbers6() throws Exception {
-    // Arrange
-    ArrayList<Double> someNumberList1 = new ArrayList<>();
-    someNumberList1.add(10.0d);
-
-    ArrayList<Double> someNumberList2 = new ArrayList<>();
-    someNumberList2.add(10.0d);
-
-    // Act
-    ManipulationOFListOfNumbers actualManipulationOFListOfNumbers = new ManipulationOFListOfNumbers(someNumberList1,
-            someNumberList2);
-
-    // Assert
-    List<Double> firstDoublesList = actualManipulationOFListOfNumbers.getFirstDoublesList();
-    assertEquals(1, firstDoublesList.size());
-    assertEquals(firstDoublesList, actualManipulationOFListOfNumbers.getSecondDoublesList());
-  }
 }

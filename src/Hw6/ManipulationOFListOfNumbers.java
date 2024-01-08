@@ -31,12 +31,14 @@ public class ManipulationOFListOfNumbers {
      */
 
     public ManipulationOFListOfNumbers (List<Double> someNumberList1, List<Double> someNumberList2) throws Exception {
+        // проверяем принимаемые в конструктор списки на пустоту
         if (someNumberList1.isEmpty() || someNumberList2.isEmpty() || someNumberList1 == null || someNumberList2 == null) {
             throw new Exception("список/списки не могут быть пустыми");
         }
         this.firstDoublesList = someNumberList1;
         this.secondDoublesList = someNumberList2;
     }
+
 
     /**
      * Метод averageCalculation рассчитывает средние значения у каждого списка в экземпляре класса
@@ -47,25 +49,22 @@ public class ManipulationOFListOfNumbers {
         this.secondListAverage = (this.secondDoublesList.stream().mapToDouble(i -> i).sum()) / this.secondDoublesList.size();
     }
 
+
     /**
      * Метод averagesOfListsComparing сравнивает средние значения у списков и выводит в консоль результаты сравнения
      */
 
-    public void averagesOfListsComparing() {
-        if (this.getFirstListAverage() == 0 && this.getSecondListAverage() == 0) {
-            System.out.println("Небходимо сначала вычислить средние значения списков");
+    public String averagesOfListsComparing() {
+        if (this.firstListAverage > this.secondListAverage) {
+            return "Первый список имеет большее среднее значение";
         }
-        else {
-            if (this.firstListAverage > this.secondListAverage) {
-                System.out.println("Первый список имеет большее среднее значение");
-            }
-            if (this.firstListAverage < this.secondListAverage) {
-                System.out.println("Второй список имеет большее среднее значение");
-            }
-            if (this.firstListAverage == this.secondListAverage) {
-                System.out.println("Средние значения равны");
-            }
+        if (this.firstListAverage < this.secondListAverage) {
+            return "Второй список имеет большее среднее значение";
         }
+        if (this.firstListAverage == this.secondListAverage) {
+            return "Средние значения равны";
+        }
+        return "Небходимо сначала вычислить средние значения списков";
     }
 
     /**
