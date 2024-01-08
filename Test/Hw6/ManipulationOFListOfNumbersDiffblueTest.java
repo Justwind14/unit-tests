@@ -101,6 +101,9 @@ class ManipulationOFListOfNumbersTest {
      */
     @Test
     void testAveragesOfListsComparing() throws Exception {
+        // Act
+        lists.averageCalculation();
+
         // Act and Assert
         assertEquals("Средние значения равны",
                 lists.averagesOfListsComparing());
@@ -121,7 +124,7 @@ class ManipulationOFListOfNumbersTest {
         list3.add(40.0d);
 
         ManipulationOFListOfNumbers lists3 = new ManipulationOFListOfNumbers(list3, someNumberList2);
-
+        lists3.averageCalculation();
         // Act and Assert
         assertEquals("Первый список имеет большее среднее значение",
                 lists3.averagesOfListsComparing());
@@ -142,6 +145,7 @@ class ManipulationOFListOfNumbersTest {
         list3.add(40.0d);
 
         ManipulationOFListOfNumbers lists2 = new ManipulationOFListOfNumbers(someNumberList1, list3);
+        lists2.averageCalculation();
 
         // Act and Assert
         assertEquals("Второй список имеет большее среднее значение",

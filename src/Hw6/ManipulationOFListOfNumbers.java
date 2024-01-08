@@ -55,6 +55,8 @@ public class ManipulationOFListOfNumbers {
      */
 
     public String averagesOfListsComparing() {
+        if (this.firstListAverage <= 0 || this.secondListAverage <= 0)
+            return "Небходимо сначала вычислить средние значения списков";
         if (this.firstListAverage > this.secondListAverage) {
             return "Первый список имеет большее среднее значение";
         }
@@ -64,7 +66,7 @@ public class ManipulationOFListOfNumbers {
         if (this.firstListAverage == this.secondListAverage) {
             return "Средние значения равны";
         }
-        return "Небходимо сначала вычислить средние значения списков";
+        return null;
     }
 
     /**
