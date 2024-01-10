@@ -24,6 +24,8 @@ public class ManipulationOFListOfNumbers {
      */
     private double secondListAverage;
 
+    String name;
+
     /**
      * Конструктор
      * @param someNumberList1 - первый список чисел``
@@ -55,6 +57,7 @@ public class ManipulationOFListOfNumbers {
      */
 
     public String averagesOfListsComparing() {
+
         if (this.firstListAverage <= 0 || this.secondListAverage <= 0)
             return "Небходимо сначала вычислить средние значения списков";
         if (this.firstListAverage > this.secondListAverage) {
@@ -93,8 +96,16 @@ public class ManipulationOFListOfNumbers {
         return firstDoublesList;
     }
 
+
     public List<Double> getSecondDoublesList() {
         return secondDoublesList;
     }
 
+    public void setFirstDoublesList(List<Double> firstDoublesList) {
+        this.firstDoublesList = firstDoublesList;
+    }
+
+    public void setSecondDoublesList(List<Double> secondDoublesList) {
+        this.secondDoublesList = secondDoublesList;
+    }
 }

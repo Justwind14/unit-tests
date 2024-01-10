@@ -194,5 +194,17 @@ class ManipulationOFListOfNumbersTest {
     assertEquals("Средние значения равны", lists.averagesOfListsComparing());
   }
 
+  @Test
+  void testSetDfsf() {
+    List<Double> dubl = new ArrayList<>();
+    dubl.add(1.9);
+    dubl.add(2.9);
+    dubl.add(3.9);
+    dubl.add(3.9);
+
+    lists.setFirstDoublesList(dubl);
+
+    assertEquals(4, lists.getFirstDoublesList().size());
+  }
 
 }
